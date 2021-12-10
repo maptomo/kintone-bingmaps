@@ -27,7 +27,26 @@ kintoneにある緯度経度データをもとに、Microsoft Bing Maps APIを�
   - [サンプルCSV](data.csv)
   - [CSVファイルからアプリ作成](https://jp.cybozu.help/k/ja/user/create_app/app_csv/add_app_csv.html)
 - [カスタマイズビューの作成](https://jp.cybozu.help/k/ja/user/app_settings/view/set_view.html#view_set_view_2030)
+
+```html
+<div class="blockleft">
+  <div id="map-index"></div>
+</div>
+<div class="blockdata">
+  <div id="map-list"></div>
+</div>
+```
+
 - [JavaScriptファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html)
+
+以下のURL、ファイルを設定する
+  - https://cdn.jsdelivr.net/npm/@kintone/kintone-ui-component@0.8.3/dist/kintone-ui-component.min.js
+  - [sample.js](sample.js)
+
+- [CSSファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html)
+
+以下のURL、ファイルを設定する
+  - https://cdn.jsdelivr.net/npm/@kintone/kintone-ui-component@0.8.3/dist/kintone-ui-component.min.css
 
 
 ## Bing Maps Document
