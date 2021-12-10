@@ -14,6 +14,13 @@
   const _mapKey = 'YOUR_BING_MAPS_KEY';
   const _mapUrl = 'https://www.bing.com/api/maps/mapcontrol?callback=drawMap&key=' + _mapKey;
   
+  const _container_index = 'map-index';
+  const _container_list = 'map-list';
+  const _container_detail = 'map-detail';
+
+  // ---------------------------------------------------------------------------
+  // Microsoft.Bing.Maps Elemetを作成する
+  // ---------------------------------------------------------------------------
   const MapElement = function(url) {
 
     return new Promise(function(resolve, reject) {
@@ -47,10 +54,6 @@
     });
   };
   
-  const _container_index = 'map-index';
-  const _container_list = 'map-list';
-  const _container_detail = 'map-detail';
-
   // ---------------------------------------------------------------------------
   // レコード操作のイベント
   // ---------------------------------------------------------------------------
