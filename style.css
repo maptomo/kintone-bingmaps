@@ -1,0 +1,15 @@
+div.blockleft {
+   float: left;
+   width: 65%;
+}
+
+div#map-index {
+  display: flex;
+  height: 600px;
+}
+
+div#user-js-map-detail {
+  display: flex;
+  height: 500px;
+  width: 800px;
+}
