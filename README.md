@@ -46,6 +46,7 @@ kintoneにある緯度経度データをもとに、Microsoft Bing Maps APIを�
 
 - [CSSファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html)
   - https://cdn.jsdelivr.net/npm/@kintone/kintone-ui-component@0.8.3/dist/kintone-ui-component.min.css
+  - [style.css](style.css)
 
 
 ## Bing Maps Document
