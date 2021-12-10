@@ -6,7 +6,7 @@ kintoneにある緯度経度データをもとに、Microsoft Bing Maps APIを�
 |レコード一覧（カスタマイズビュー）|レコード詳細|
 |---|---|
 |![](2021k1.png)|![](2021k2.png)|
-|![](2021k4.png)||
+|![](2021k4.png)|![](2021k5.png)|
 
 
 ## 主な仕様
@@ -29,7 +29,7 @@ kintoneにある緯度経度データをもとに、Microsoft Bing Maps APIを�
   - [サンプルCSV](data.csv)
   - [CSVファイルからアプリ作成](https://jp.cybozu.help/k/ja/user/create_app/app_csv/add_app_csv.html)
 4. アプリのビュー設定
-  - [カスタマイズビューの作成](https://jp.cybozu.help/k/ja/user/app_settings/view/set_view.html#view_set_view_2030)
+  - [カスタマイズビューの作成](https://jp.cybozu.help/k/ja/user/app_settings/view/set_view.html#view_set_view_2030) （次のHTMLを設定）
 
 ```html
 <div class="blockleft">
@@ -41,11 +41,11 @@ kintoneにある緯度経度データをもとに、Microsoft Bing Maps APIを�
 ```
 
 5. ファイル読み込み
-- [JavaScriptファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html)
+- [JavaScriptファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html) （次のURL、ファイルを設定）
   - https://cdn.jsdelivr.net/npm/@kintone/kintone-ui-component@0.8.3/dist/kintone-ui-component.min.js
   - [sample.js](sample.js)
 
-- [CSSファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html)
+- [CSSファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html) （次のURL、ファイルを設定）
   - https://cdn.jsdelivr.net/npm/@kintone/kintone-ui-component@0.8.3/dist/kintone-ui-component.min.css
   - [style.css](style.css)
 
