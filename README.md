@@ -18,15 +18,17 @@ kintoneにある緯度経度データをもとに、Microsoft Bing Maps APIを�
 - PC版のChrome, Firefoxのみ確認済
 
 ## 適用方法の情報
-- [Microsoft Bing Maps APIの取得方法](https://docs.microsoft.com/ja-jp/windows/uwp/maps-and-location/authentication-key)
+1. Microsoft Bing Maps APIの取得
+  - [Microsoft Bing Maps APIの取得方法](https://docs.microsoft.com/ja-jp/windows/uwp/maps-and-location/authentication-key)
   - [取得ページ](https://www.bingmapsportal.com/)
-- kintone環境の準備
+2. kintone環境の準備
   - [kintone開発環境](https://developer.cybozu.io/hc/ja/articles/200720464)
   - [kintone試用申し込み](https://kintone.cybozu.co.jp/trial/)
-- サンプルデータのインポート
+3. サンプルデータのインポート
   - [サンプルCSV](data.csv)
   - [CSVファイルからアプリ作成](https://jp.cybozu.help/k/ja/user/create_app/app_csv/add_app_csv.html)
-- [カスタマイズビューの作成](https://jp.cybozu.help/k/ja/user/app_settings/view/set_view.html#view_set_view_2030)
+4. アプリのビュー設定
+  - [カスタマイズビューの作成](https://jp.cybozu.help/k/ja/user/app_settings/view/set_view.html#view_set_view_2030)
 
 ```html
 <div class="blockleft">
@@ -37,17 +39,18 @@ kintoneにある緯度経度データをもとに、Microsoft Bing Maps APIを�
 </div>
 ```
 
+5. ファイル読み込み
 - [JavaScriptファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html)
-
-以下のURL、ファイルを設定する
   - https://cdn.jsdelivr.net/npm/@kintone/kintone-ui-component@0.8.3/dist/kintone-ui-component.min.js
   - [sample.js](sample.js)
 
 - [CSSファイルの読み込み方法](https://jp.cybozu.help/k/ja/admin/javascript_fullcustomize.html)
-
-以下のURL、ファイルを設定する
   - https://cdn.jsdelivr.net/npm/@kintone/kintone-ui-component@0.8.3/dist/kintone-ui-component.min.css
 
 
 ## Bing Maps Document
 - [Bing Maps Documentation](https://docs.microsoft.com/ja-jp/bingmaps/)
+- [いろいろな日本百選の経緯度数値データ](http://100sen.cyber-ninja.jp/)
+- [XLsoft CorporationによるBing Map site](https://www.xlsoft.com/jp/products/bing_maps/index.html)
+- [Bing Map Site](https://www.bing.com/maps)
+
