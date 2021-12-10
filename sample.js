@@ -5,22 +5,48 @@
  * @since 2021
  */
 
-(() => {
+(function() {
 
   'use strict';
 
   const _appId = kintone.app.getId();
   const _kintoneUrl = window.location.origin + '/k/';
-  const _mapKey = '{YOUR_BING_MAPS_KEY}';
-  const _mapUrl = 'https://www.bing.com/api/maps/mapcontrol?callback=drawMap';
+  const _mapKey = 'YOUR_BING_MAPS_KEY';
+  const _mapUrl = 'https://www.bing.com/api/maps/mapcontrol?callback=drawMap&key=' + _mapKey;
   
-  let script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = _mapUrl;
-  script.setAttribute('async', true);
-  script.setAttribute('defer', true);
-  document.getElementsByTagName('head')[0].appendChild(script);
+  const MapElement = function(url) {
 
+    return new Promise(function(resolve, reject) {
+      if(typeof Microsoft !== "undefined") {
+        resolve(Microsoft);
+        return true;
+      }
+
+      let script = document.createElement('script');
+      script.setAttribute('type', 'text/javascript');
+      script.setAttribute('src', url);
+
+      document.getElementsByTagName('head')[0].appendChild(script);
+
+      let timeout = 0;
+      const interval = setInterval(function(){
+
+        if (timeout >= 20) {
+          reject();
+          clearInterval(interval);
+          console.error('Error T.T Bing Maps');
+        }
+
+        if (typeof Microsoft !== 'undefined') {
+          resolve(Microsoft);
+          clearInterval(interval);
+          console.log('Sucess!! Bing Maps');
+        }
+        timeout += 1;
+      }, 500);
+    });
+  };
+  
   const _container_index = 'map-index';
   const _container_list = 'map-list';
   const _container_detail = 'map-detail';
@@ -44,7 +70,7 @@
       showListdata(event);
 
       const records = event.records;
-      if (records.length > 0) {
+      if (records.length >= 0) {
         const param = setParam(records[0], _container_index);
         drawMap(param);
       }
@@ -74,27 +100,46 @@
   // ---------------------------------------------------------------------------
   // Bing Mapsを生成し、座標、ズームなどを設定する
   // ---------------------------------------------------------------------------
-  const drawMap = async function(param) {
+  const drawMap = function(param) {
 
-    if (Microsoft === undefined){
-      return false;
-    }
-    // Bing Maps
-    const map = await new Microsoft.Maps.Map('#' + param.container, {
-      credentials: _mapKey,
-      center: new Microsoft.Maps.Location(param.lat, param.lng),
-      mapTypeId: Microsoft.Maps.MapTypeId.aerial,
-      zoom: param.zoom
-    });
-    
-    // 座標にポップアップ表示
-    const center = map.getCenter();
-    const box = await new Microsoft.Maps.Infobox(center, {
-      title: param.name,
-      description: param.exp
-    });
-    box.setMap(map);
+    MapElement(_mapUrl).then(function(Microsoft) {
 
+      const enu = randomEnumeration();
+      console.log(enu);
+      // Bing Maps
+      const map = new window.Microsoft.Maps.Map('#' + param.container, {
+        credentials: _mapKey,
+        center: new Microsoft.Maps.Location(param.lat, param.lng),
+        mapTypeId: enu,
+        zoom: param.zoom
+      });
+      
+      // 座標にポップアップ表示
+      const center = map.getCenter();
+      const box = new Microsoft.Maps.Infobox(center, {
+        title: param.name,
+        description: param.exp
+      });
+      box.setMap(map);
+    });
+  };
+  
+  // ---------------------------------------------------------------------------
+  // ランダムにMapTypeId Enumerationを抽出
+  // ---------------------------------------------------------------------------
+  const randomEnumeration = function() {
+    const enu = [
+      Microsoft.Maps.MapTypeId.aerial,
+      Microsoft.Maps.MapTypeId.canvasDark,
+      Microsoft.Maps.MapTypeId.canvasLight,
+      Microsoft.Maps.MapTypeId.birdseye,
+      Microsoft.Maps.MapTypeId.grayscale,
+//      Microsoft.Maps.MapTypeId.mercator,
+      Microsoft.Maps.MapTypeId.ordnanceSurvey,
+      Microsoft.Maps.MapTypeId.road,
+//      Microsoft.Maps.MapTypeId.streetside
+    ];
+    return enu[Math.floor(Math.random() * enu.length)];
   };
 
   // ---------------------------------------------------------------------------
