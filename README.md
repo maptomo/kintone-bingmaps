@@ -11,10 +11,10 @@ kintoneにある緯度経度データをもとに、Microsoft Bing Maps APIを�
 
 ## 主な仕様
 - カスタマイズビュー機能を使って、左ペインに地図、右ペインにリストを作成
-- 緯度経度の座標を元に地図を描画する
+- 緯度経度の座標を元に地図を描画する 縮尺、[Tileはランダム](https://docs.microsoft.com/en-us/bingmaps/v8-web-control/map-control-api/maptypeid-enumeration)
 - Nameのリンクをクリックすると地図が変わる
 - 右ペインの矢印（→）アイコンをクリックするとレコードの詳細に移動する
-- レコード追加/編集画面で、緯度経度、縮尺値などを変更できる
+- レコード追加/編集画面で、緯度経度値などを変更できる
 - レコード詳細画面で地図を描画する
 - PC版のChrome, Firefoxのみ確認済
 
