@@ -95,8 +95,7 @@
       'name': record ? record.Name.value : 'Fukuoka Airport',
       'exp': record ? record.Explanation.value : '',
       'lat': record ? Number(record.Latitude.value) : 33.5903,
-      'lng': record ? Number(record.Longitude.value) : 130.4467,
-      'zoom': record ? Number(record.Zoom.value) : 12
+      'lng': record ? Number(record.Longitude.value) : 130.4467
     };
   };
 
@@ -107,6 +106,9 @@
 
     MapElement(_mapUrl).then(function(Microsoft) {
 
+      const min = 12;
+      const max = 19;
+      
       const enu = randomEnumeration();
       console.log(enu);
       // Bing Maps
@@ -114,7 +116,7 @@
         credentials: _mapKey,
         center: new Microsoft.Maps.Location(param.lat, param.lng),
         mapTypeId: enu,
-        zoom: param.zoom
+        zoom: Math.floor(Math.random() * (max + 1 - min)) + min
       });
       
       // 座標にポップアップ表示
